@@ -1,24 +1,28 @@
 <template>
   <div class="list-view container">
-    <div class="single" v-for="playlist in playlists" :key="playlist.id">
-      <div class="thumbnail">
-        <img :src="playlist.coverUrl" alt="thumbnail" />
+    <router-link v-for="playlist in playlists" :key="playlist.id" :to="{ name: 'PlaylistDetails', params: { id: playlist.id }}">
+      <div class="single">
+        <div class="thumbnail">
+          <img :src="playlist.coverUrl" alt="thumbnail" />
+        </div>
+        <div class="details">
+          <h3>{{ playlist.title }}</h3>
+          <p>Created by {{ playlist.userName }}</p>
+        </div>
+        <div class="song-number">
+          <span>
+            Songs: <span class="pill">{{ playlist.songs.length }}</span>
+          </span>
+        </div>
+        <!-- <div class="action">
+          <router-link
+            :to="{ name: 'PlaylistDetails', params: { id: playlist.id } }"
+            class="btn btn-action"
+            >View</router-link
+          >
+        </div> -->
       </div>
-      <div class="details">
-        <h3>{{ playlist.title }}</h3>
-        <p>Created by {{ playlist.userName }}</p>
-        <p>
-          Songs: <span class="pill">{{ playlist.songs.length }}</span>
-        </p>
-      </div>
-      <div class="action">
-        <router-link
-          :to="{ name: 'PlaylistDetails', params: { id: playlist.id } }"
-          class="btn btn-action"
-          >View</router-link
-        >
-      </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -74,11 +78,7 @@ export default {
   color: #555;
 }
 
-.action {
+.song-number {
   margin-left: auto;
-}
-
-.action button {
-  margin: 0 5px;
 }
 </style>

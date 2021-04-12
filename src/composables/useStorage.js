@@ -27,7 +27,18 @@ const useStorage = () => {
     }
   };
 
-  return { error, publicUrl, filePath, uploadImage };
+  const deleteImage = async (filePath) => {
+    try {
+      const storageRef = projectStorage.ref(filePath);
+      await storageRef.delete();
+      console.log('image deleted');
+    } catch (err) {
+      console.log(err.message);
+      error.value = 'Could not delete image';
+    }
+  }
+
+  return { error, publicUrl, filePath, uploadImage, deleteImage };
 };
 
 export default useStorage;

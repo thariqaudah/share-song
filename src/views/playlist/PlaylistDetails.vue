@@ -25,6 +25,7 @@ import { useRouter } from 'vue-router';
 import getDocument from '@/composables/getDocument';
 import getUser from '@/composables/getUser';
 import useDocument from '@/composables/useDocument';
+import useStorage from '@/composables/useStorage';
 
 export default {
   name: 'PlaylistDetails',
@@ -33,6 +34,7 @@ export default {
     const { error, document: playlist } = getDocument('playlists', props.id);
     const { user } = getUser();
     const { deleteDoc } = useDocument('playlists', props.id);
+    const { deleteImage } = useStorage();
     const router = useRouter();
 
     // Check ownership of the playlist
@@ -47,6 +49,7 @@ export default {
     });
 
     const deletePlaylist = async () => {
+      await deleteImage(playlist.value.filePath);
       await deleteDoc();
       router.push({ name: 'Home' });
       console.log('document deleted');
