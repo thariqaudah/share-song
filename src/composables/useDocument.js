@@ -3,7 +3,6 @@ import { projectFirestore } from '@/firebase/config.js';
 
 const useDocument = (collection, id) => {
   const error = ref(null);
-  const document = ref(null);
 
   const documentRef = projectFirestore.collection(collection).doc(id);
 
@@ -18,7 +17,19 @@ const useDocument = (collection, id) => {
     }
   };
 
-  return { error, document, deleteDoc };
+  const updateDoc = async (updates) => {
+    error.value = null;
+
+    try {
+      const res = await documentRef.update(updates);
+      return res;
+    } catch (err) {
+      console.log(err.message);
+      error.value = 'Error. Can not update the document';
+    }
+  };
+
+  return { error, deleteDoc, updateDoc };
 };
 
 export default useDocument;

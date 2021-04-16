@@ -1,13 +1,19 @@
 import { ref, watchEffect } from 'vue';
 import { projectFirestore } from '../firebase/config';
 
-const getCollection = (collection) => {
+const getCollection = (collection, query) => {
   const error = ref(null);
   const documents = ref(null);
 
-  const collectionRef = projectFirestore
+  let collectionRef = projectFirestore
     .collection(collection)
     .orderBy('createdAt');
+
+  if (query) {
+    collectionRef = collectionRef.where(...query);
+    console.log(collectionRef);
+    console.log(...query);
+  }
 
   // Get documents from DB by realtime
   const unsubscribe = collectionRef.onSnapshot(

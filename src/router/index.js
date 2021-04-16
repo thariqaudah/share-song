@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Login from '@/views/auth/Login.vue';
 import Signup from '@/views/auth/Signup.vue';
-import CreatePlaylist from '@/views/playlist/CreatePlaylist.vue';
-import PlaylistDetails from '@/views/playlist/PlaylistDetails.vue';
+import CreatePlaylist from '@/views/playlists/CreatePlaylist.vue';
+import PlaylistDetails from '@/views/playlists/PlaylistDetails.vue';
+import UserPlaylist from '@/views/playlists/UserPlaylist.vue';
 import getUser from '@/composables/getUser';
 
 const { user } = getUser();
@@ -44,17 +45,23 @@ const routes = [
     beforeEnter: requireNoAuth,
   },
   {
-    path: '/playlist/create',
+    path: '/playlists/create',
     name: 'CreatePlaylist',
     component: CreatePlaylist,
     beforeEnter: requireAuth,
   },
   {
-    path: '/playlist/:id/details',
+    path: '/playlists/:id',
     name: 'PlaylistDetails',
     component: PlaylistDetails,
     beforeEnter: requireAuth,
     props: true,
+  },
+  {
+    path: '/playlists/user',
+    name: 'UserPlaylist',
+    component: UserPlaylist,
+    beforeEnter: requireAuth,
   },
 ];
 

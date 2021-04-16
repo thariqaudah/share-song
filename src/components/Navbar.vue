@@ -20,6 +20,11 @@
       </div>
       <div v-else>
         <li>
+          <router-link :to="{ name: 'UserPlaylist' }">
+            My Playlists
+          </router-link>
+        </li>
+        <li>
           <router-link :to="{ name: 'CreatePlaylist' }">
             Create Playlist
           </router-link>
@@ -70,5 +75,9 @@ button,
   margin-top: 0;
   font-size: 14px;
   font-weight: normal;
+}
+
+a {
+  color: var(--primary);
 }
 </style>

@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary: #464343;
-  --secondary: #eee7e7;
+  --primary: #0a4a94;
+  --secondary: #464343;
   --warning: #e60b0b;
   --info: #e7ae0f;
+  /* --primary: #464343;
+  --secondary: #eee7e7;
+  --tertiary: #0a4a94;
+  --warning: #e60b0b;
+  --info: #e7ae0f; */
 }
 
 * {
@@ -17,7 +22,7 @@ html,
 body {
   font-family: 'Poppins', sans-serif;
   background: #f4f4f4;
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 h1 {
@@ -50,13 +55,13 @@ a {
   margin: 100px auto 0;
   padding: 30px;
   background: #fff;
-  max-width: 400px;
+  width: 400px;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pill {
-  background-color: #0a4a94;
+  background-color: var(--primary);
   padding: 1px 10px;
   border-radius: 20px;
   color: #fff;
@@ -84,7 +89,7 @@ a {
 
 .navbar h1 {
   font-size: 24px;
-  color: var(--primary);
+  color: var(--secondary);
   display: inline-block;
 }
 
@@ -106,7 +111,7 @@ label {
   display: block;
   margin-bottom: 10px;
   font-size: 12px;
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 input,
@@ -117,10 +122,10 @@ textarea {
   padding: 10px 0;
   outline: none;
   border: none;
-  border-bottom: 1px solid var(--secondary);
+  border-bottom: 1px solid #eee;
   font-family: inherit;
   font-size: 14px;
-  color: var(--primary);
+  color: var(--secondary);
   resize: vertical;
 }
 
@@ -160,8 +165,4 @@ button:hover,
   background: transparent;
   border: 1px solid var(--primary);
   color: var(--primary);
-}
-
-.btn-action {
-  background-color: #0a4a94;
 }
