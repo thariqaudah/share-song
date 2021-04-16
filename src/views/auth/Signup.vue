@@ -60,12 +60,7 @@ export default {
           isLoading.value = true;
           await signup(email.value, password.value, displayName.value);
           if (!error.value) {
-            isLoading.value = false;
-            displayName.value = '';
-            email.value = '';
-            password.value = '';
-            confirmPassword.value = '';
-            router.push({ name: 'Home' });
+            router.push({ name: 'UserPlaylist' });
           }
           isLoading.value = false;
         }

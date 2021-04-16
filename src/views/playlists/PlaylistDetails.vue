@@ -1,4 +1,5 @@
 <template>
+<div class="container"><a class="nav" @click="router.go(-1)">Back</a></div>
   <div v-if="error" class="error container">{{ error }}</div>
   <div v-if="playlist" class="playlist-details container">
     <div class="playlist-info">
@@ -82,7 +83,7 @@ export default {
       // await updateDoc({ songs: playlist.value.songs });
     };
 
-    return { error, playlist, ownership, handleDelete, deleteSong };
+    return { error, playlist, ownership, handleDelete, deleteSong, router };
   },
 };
 </script>
@@ -156,5 +157,10 @@ export default {
 .song-list li button {
   padding: 5px 10px;
   background-color: var(--secondary);
+}
+.nav {
+  display: inline-block;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 </style>

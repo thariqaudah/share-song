@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container">
     <div class="error" v-if="error">{{ error }}</div>
     <ListView :playlists="playlists" />
   </div>

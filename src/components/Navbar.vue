@@ -15,22 +15,25 @@
           >
         </li>
         <li>
-          <router-link :to="{ name: 'Signup' }" class="btn">Signup</router-link>
+          <router-link :to="{ name: 'Signup' }" class="btn a">Signup</router-link>
         </li>
       </div>
       <div v-else>
-        <li>
-          <router-link :to="{ name: 'UserPlaylist' }">
-            My Playlists
-          </router-link>
-        </li>
         <li>
           <router-link :to="{ name: 'CreatePlaylist' }">
             Create Playlist
           </router-link>
         </li>
         <li>
-          <button @click="handleLogout" class="btn btn-secondary">
+          <router-link :to="{ name: 'UserPlaylist' }">
+            My Playlists
+          </router-link>
+        </li>
+        <li>
+          <p>Welcome, {{ user.displayName }}</p>
+        </li>
+        <li>
+          <button @click="handleLogout">
             Logout
           </button>
         </li>
@@ -77,7 +80,14 @@ button,
   font-weight: normal;
 }
 
-a {
-  color: var(--primary);
+.a:hover {
+  color: #fff;
+}
+
+li p {
+  display: inline-block;
+  font-size: 14px;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
 }
 </style>

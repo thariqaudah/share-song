@@ -11,8 +11,6 @@ const getCollection = (collection, query) => {
 
   if (query) {
     collectionRef = collectionRef.where(...query);
-    console.log(collectionRef);
-    console.log(...query);
   }
 
   // Get documents from DB by realtime

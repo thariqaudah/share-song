@@ -40,6 +40,14 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: var(--primary);
+}
+
+.router-link-exact-active {
+  color: var(--primary);
+}
+
 .container {
   padding: 10px 40px;
 }

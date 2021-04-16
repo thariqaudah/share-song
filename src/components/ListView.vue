@@ -1,5 +1,5 @@
 <template>
-  <div class="list-view container">
+  <div class="list-view">
     <router-link v-for="playlist in playlists" :key="playlist.id" :to="{ name: 'PlaylistDetails', params: { id: playlist.id }}">
       <div class="single">
         <div class="thumbnail">

@@ -38,10 +38,7 @@ export default {
         isLoading.value = true;
         await login(email.value, password.value);
         if (!error.value) {
-          isLoading.value = false;
-          email.value = '';
-          password.value = '';
-          router.push({ name: 'Home' });
+          router.push({ name: 'UserPlaylist' });
         }
         isLoading.value = false;
       }
